@@ -52,10 +52,21 @@
 </template>
 
 <script>
+    import API from '@/api';
+
     export default {
         name: 'Admin',
         data() {
             return {};
+        },
+        mounted() {
+            API.Search.complicateSearch(1, ['12', '23'])
+                .then((res) => {
+
+                })
+                .catch((err) => {
+
+                });
         },
         computed: {
             computedDefaultOpen() {
@@ -71,6 +82,11 @@
                 return this.$router.options.routes.filter((route) => {
                     return route.path.indexOf('admin') >= 0;
                 });
+            }
+        },
+        methods: {
+            logout() {
+
             }
         }
     };
