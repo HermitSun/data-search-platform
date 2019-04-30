@@ -8,8 +8,13 @@ export const simpleSearch = (page, keyword) => {
     );
 };
 // 高级搜索
-export const complicateSearch = (page, keywords, dataStartTime, dataEndTime, dataArea) => {
-    console.log(arguments);
+export const complicateSearch = (
+    page,
+    keywords,
+    dataStartTime,
+    dataEndTime,
+    dataArea
+) => {
     return axios.get(
         '/search/complicate',
         {params: {page, keywords, dataStartTime, dataEndTime, dataArea}}

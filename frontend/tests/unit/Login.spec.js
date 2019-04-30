@@ -7,10 +7,7 @@ describe('Login.vue', () => {
         const wrapper = shallowMount(Login);
 
     });
-    it('如果密码错误，应该提示密码错误', function () {
-
-    });
-    it('如果账号错误，应该提示账号不存在', function () {
+    it('如果账号密码错误，应该提示登录失败', function () {
 
     });
     it('如果未登录，应该不能使用其他功能', function () {
