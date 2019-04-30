@@ -43,8 +43,8 @@
             <!--内容-->
             <el-main class="content-container">
                 <el-col :span="24" class="content-wrapper">
-                    <Login></Login>
-                    <transition name="fade" mode="out-in">
+                    <Login v-if="$route.path==='/admin'"></Login>
+                    <transition v-else name="fade" mode="out-in">
                         <router-view></router-view>
                     </transition>
                 </el-col>
@@ -84,7 +84,6 @@
             }
         },
         methods: {
-            // TODO
             logout() {
                 this.$router.push('/admin');
                 localStorage.removeItem('token');

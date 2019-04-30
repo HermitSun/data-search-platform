@@ -29,10 +29,10 @@
                 },
                 loginRules: {
                     username: [
-                        {required: true, message: '请输入用户名', trigger: 'change'}
+                        {required: true, message: '请输入用户名', trigger: 'blur'}
                     ],
                     password: [
-                        {required: true, message: '请输入密码', trigger: 'change'}
+                        {required: true, message: '请输入密码', trigger: 'blur'}
                     ]
                 },
                 loginFormWidth: '60px'
@@ -40,23 +40,37 @@
         },
         methods: {
             checkAndLogin() {
-                API.Login.adminLogin(
-                    this.loginForm.username,
-                    this.loginForm.password
-                ).then((res) => {
-                    this.$message({
-                        message: '登录成功',
-                        type: 'success'
-                    });
-                    let token = res.token;
-                    localStorage.setItem('token', token);
-                    this.$store.dispatch('updateToken', token);
-                    this.$router.push('/admin/upload');
-                }).catch((err) => {
-                    this.$message({
-                        message: '用户名或密码错误',
-                        type: 'error'
-                    });
+                this.$refs.loginForm.validate((valid) => {
+                    if (valid) {
+                        let token = this.loginForm.username;
+                        localStorage.setItem('token', token);
+                        this.$store.dispatch('updateToken', token);
+                        this.$router.push('/admin/upload');
+                        // API.Login.adminLogin(
+                        //     this.loginForm.username,
+                        //     this.loginForm.password
+                        // ).then((res) => {
+                        //     this.$message({
+                        //         message: '登录成功',
+                        //         type: 'success'
+                        //     });
+                        //     let token = res.token;
+                        //     localStorage.setItem('token', token);
+                        //     this.$store.dispatch('updateToken', token);
+                        //     this.$router.push('/admin/upload');
+                        // }).catch((err) => {
+                        //     this.$message({
+                        //         message: '用户名或密码错误',
+                        //         type: 'error'
+                        //     });
+                        // });
+                    } else {
+                        this.$message({
+                            message: '请填写用户名和密码',
+                            type: 'error'
+                        });
+                        return false;
+                    }
                 });
             }
         }
