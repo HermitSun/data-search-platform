@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper">
+    <div class="wrapper">
         <p>搜索列表</p>
     </div>
 </template>

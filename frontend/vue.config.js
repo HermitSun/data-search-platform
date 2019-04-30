@@ -1,7 +1,7 @@
 const path = require('path');
 
 function resolve(dir) {
-    return path.join(__dirname, dir)
+    return path.join(__dirname, dir);
 }
 
 // 生产环境部署的路径
@@ -17,6 +17,7 @@ module.exports = {
     chainWebpack: config => {
         config.resolve.alias
             .set('@', resolve('src'))
+            .set('api', resolve('src/api'))
             .set('assets', resolve('src/assets'))
             .set('components', resolve('src/components'))
             .set('utils', resolve('src/utils'))

@@ -5,7 +5,7 @@
 export default [
     {
         path: '/not-found',
-        name: 'PageNotFound',
+        name: '找不到页面',
         component: () => import('views/PageNotFound.vue'),
         meta: {
             title: '找不到页面'
@@ -13,7 +13,7 @@ export default [
     },
     {
         path: '/',
-        name: 'UserIndex',
+        name: '搜索',
         component: () => import('views/user/Index.vue'),
         meta: {
             title: '搜索'
@@ -21,7 +21,7 @@ export default [
     },
     {
         path: '/result-list',
-        name: 'ResultList',
+        name: '搜索结果列表',
         component: () => import('views/user/ResultList.vue'),
         meta: {
             title: '搜索结果列表'
@@ -29,7 +29,7 @@ export default [
     },
     {
         path: '/result-detail',
-        name: 'ResultDetail',
+        name: '搜索结果详情',
         component: () => import('views/user/ResultDetail.vue'),
         meta: {
             title: '搜索结果详情'
@@ -37,16 +37,18 @@ export default [
     },
     {
         path: '/admin',
-        name: 'AdminIndex',
+        name: '管理员登录',
         component: () => import('views/admin/Admin.vue'),
         meta: {
-            title: '管理员首页'
+            title: '登录'
         },
         children: [
             {
                 path: '/admin/upload',
-                name: 'UploadQuestionnaire',
+                name: '上传问卷',
                 component: () => import('views/admin/UploadQuestionnaire.vue'),
+                isLeaf: true,
+                iconClass: 'el-icon-upload2',
                 meta: {
                     title: '上传问卷'
                 }
