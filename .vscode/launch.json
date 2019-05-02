@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DataSearchPlatformApplication",
+            "request": "launch",
+            "mainClass": "com.bitability.dsp.DataSearchPlatformApplication",
+            "projectName": "dsp"
+        }
+    ]
+}
