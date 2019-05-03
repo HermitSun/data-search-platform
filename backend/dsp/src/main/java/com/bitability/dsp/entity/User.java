@@ -1,10 +1,8 @@
 package com.bitability.dsp.entity;
-
-import javax.persistence.Entity;
-
-
-@Entity
-// TODO:tableName
+import lombok.Data;
+@Data
 public class User {
-    // TODO:表结构
+    private String id;
+    private String username;
+    private String password;
 }
