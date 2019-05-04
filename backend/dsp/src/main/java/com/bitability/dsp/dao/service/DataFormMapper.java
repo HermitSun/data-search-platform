@@ -12,4 +12,11 @@ public interface DataFormMapper {
      * @return
      */
     int insertData(@Param("DataForm")DataForm dataForm);
+
+    /**
+     * 查询数据
+     * @param id
+     * @return
+     */
+    DataForm selectDataById(@Param("id")String id);
 }

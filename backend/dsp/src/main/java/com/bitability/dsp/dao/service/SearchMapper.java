@@ -21,8 +21,8 @@ public interface SearchMapper {
      * @param dataArea
      * @return
      */
-    List<DataForm>complicateSelect(@Param("keywords")String[]keywords,
+    List<DataForm>complicateSelect(@Param("keywords")String keywords,
                                    @Param("dataStartTime")String dataStartTime,
                                    @Param("dataEndTime")String dataEndTime,
-                                   @Param("dataArea")String[]dataArea);
+                                   @Param("dataArea")String dataArea);
 }
