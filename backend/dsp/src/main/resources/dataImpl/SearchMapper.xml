@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitability.dsp.dao.service.SearchMapper">
+    <select id="simpleSelect" resultMap="DataForm">
+        select *,((case when instr(data_name,#{keyword})>0 then 4 else 0 end)+
+                  (case when instr(data_description,#{keyword})>0 then 2 else 0 end)+
+                  (case when instr(data_content,#{keyword})>0 then 1 else 0 end))as priority
+        from data where data_name like concat('%',#{keyword},'%')
+            or data_description like concat('%',#{keyword},'%')
+            or data_content like concat('%',#{keyword},'%')
+        order by priority desc
+    </select>
+
+    <select id="complicateSelect" resultMap="DataForm">
+        select *,((case when instr(data_name,#{keyword})>0 then 4 else 0 end)+
+                  (case when instr(data_description,#{keyword})>0 then 2 else 0 end)+
+                  (case when instr(data_content,#{keyword})>0 then 1 else 0 end))as priority
+        from data where
+            (data_start_time=#{dataStartTime}
+            and data_end_time=#{dataEndTime}
+            and data_source like concat('%',#{dataArea},'%'))
+            and (data_name like concat('%',#{keywords},'%')
+            or data_description like concat('%',#{keywords},'%')
+            or data_content like concat('%',#{keywords},'%'))
+        order by priority desc
+    </select>
+
+    <resultMap id="DataForm" type="com.bitability.dsp.entity.DataForm">
+    <result column="id" property="id"></result>
+    <result column="data_name" property="dataName"></result>
+    <result column="data_start_time" property="dataStartTime"></result>
+    <result column="data_end_time" property="dataEndTime"></result>
+    <result column="data_source" property="dataSource"></result>
+    <result column="data_description" property="dataDescription"></result>
+    <result column="data_link" property="dataLink"></result>
+    <result column="data_content" property="dataContent"></result>
+</resultMap>
+</mapper>

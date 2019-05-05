@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitability.dsp.dao.service.DataFormMapper">
+    <insert id="insertData" parameterType="com.bitability.dsp.parameter.DataFormParameter"
+    useGeneratedKeys="true" keyProperty="id">
+        insert into data(data_name,data_start_time,data_end_time,data_source,
+                         data_description,data_link,data_content)
+        value (#{dataname},#{dataStartTime},#{dataEndTime},#{dataSource},
+               #{dataDescription},#{dataLink},#{dataContent})
+    </insert>
+
+    <select id="selectDataById" resultMap="DataForm">
+        select * from data where id=#{id}
+    </select>
+
+    <resultMap id="DataForm" type="com.bitability.dsp.entity.DataForm">
+        <result column="id" property="id"></result>
+        <result column="data_name" property="dataName"></result>
+        <result column="data_start_time" property="dataStartTime"></result>
+        <result column="data_end_time" property="dataEndTime"></result>
+        <result column="data_source" property="dataSource"></result>
+        <result column="data_description" property="dataDescription"></result>
+        <result column="data_link" property="dataLink"></result>
+        <result column="data_content" property="dataContent"></result>
+    </resultMap>
+</mapper>
