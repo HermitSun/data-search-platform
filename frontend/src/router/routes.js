@@ -20,7 +20,7 @@ export default [
         }
     },
     {
-        path: '/result-list',
+        path: '/result-list/:simple',
         name: '搜索结果列表',
         component: () => import('views/user/ResultList.vue'),
         meta: {

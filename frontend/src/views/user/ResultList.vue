@@ -5,8 +5,28 @@
 </template>
 
 <script>
+    import API from '@/api';
+
     export default {
-        name: 'ResultList'
+        name: 'ResultList',
+        mounted() {
+            if (this.$route.params.simple === 'simple') {
+                API.Search.simpleSearch(this.$route.query)
+                    .then(res => {
+
+                    }).then(err => {
+                    this.$message.error(err.toString());
+                });
+            } else {
+                API.Search.complicateSearch(this.$route.query)
+                    .then(res => {
+
+                    }).then(err => {
+                    this.$message.error(err.toString());
+                });
+            }
+
+        }
     };
 </script>
 
