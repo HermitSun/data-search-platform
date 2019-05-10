@@ -14,7 +14,7 @@ const router = new Router({
 // 跳转之前
 router.beforeEach((to, from, next) => {
     if (to.meta.title) {
-        document.title = to.meta.title;
+        document.title = to.params.filename ? to.params.filename : to.meta.title;
     }
     if (to.path.indexOf('/admin/') < 0) {
         next();

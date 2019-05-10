@@ -20,6 +20,7 @@ module.exports = {
             .set('api', resolve('src/api'))
             .set('assets', resolve('src/assets'))
             .set('components', resolve('src/components'))
+            .set('config', resolve('src/config'))
             .set('utils', resolve('src/utils'))
             .set('views', resolve('src/views'));
         config.resolve.extensions

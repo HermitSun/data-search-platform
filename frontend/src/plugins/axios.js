@@ -19,7 +19,7 @@ const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
     function (config) {
-        // Do something before request is sent
+        // 过滤器，用于添加token或拦截一些请求
         return config;
     },
     function (error) {

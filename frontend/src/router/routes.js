@@ -28,7 +28,7 @@ export default [
         }
     },
     {
-        path: '/result-detail',
+        path: '/result-detail/:filename',
         name: '搜索结果详情',
         component: () => import('views/user/ResultDetail.vue'),
         meta: {
