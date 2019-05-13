@@ -1,29 +1,31 @@
 <template>
-    <div id="app">
-        <transition>
+    <a-locale-provider :locale="zh_CN">
+        <div id="app">
             <router-view></router-view>
-        </transition>
-    </div>
+        </div>
+    </a-locale-provider>
 </template>
 
-<style>
-    @import "./assets/css/init.css";
+<script>
+  import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 
+  export default {
+    name: 'app',
+    data() {
+      return {
+        zh_CN,
+      };
+    }
+  };
+</script>
+
+<style>
     #app {
-        font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        width: 100%;
-        height: 100%;
-    }
-
-    .left {
-        float: left;
-    }
-
-    .right {
-        float: right;
+        margin-top: 60px;
     }
 </style>
